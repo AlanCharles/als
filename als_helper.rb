@@ -73,5 +73,24 @@ module AlsHelper
 	end
 
 
+	# ------------------------------
+	# Money related helpers
+	# ------------------------------
+	
+	def pricetag(pennies)
+		# Turns a value of pennies into 2 decimal place number
+		# with a pound sign at the front.
+		pricetag = "£" + pennies_to_pounds(pennies).to_s
+		return pricetag
+	end
+
+	def pennies_to_pounds(pennies)
+		# Turns a value of pennies into a 2 decimal place number
+		# for displaying after a pound sign. Uses the rounding float method
+		# http://stackoverflow.com/questions/2054217/rounding-float-in-ruby
+		pounds = pennies.to_f / 100
+		#return '£' + '%.2f' % pounds
+		return pounds
+	end
 
 end
