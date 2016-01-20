@@ -1,5 +1,5 @@
 # ------------------------------
-# Als Helper v2015-11-25
+# Als Helper v2016-01-20
 # ------------------------------
 
 module AlsHelper
@@ -20,6 +20,11 @@ module AlsHelper
 	# Date & Time Related Helpers
 	# -----------------------------
 	def pretty_date(datetime)
+		date_in_words = datetime.to_formatted_s(:long_ordinal)
+		return date_in_words
+	end
+	
+	def pretty_date_with_time_since(datetime)
 		date_in_words = datetime.to_formatted_s(:long_ordinal)
 		time_since = days_ago(datetime)
 		return date_in_words + " (" + time_since + " ago)"
@@ -76,7 +81,7 @@ module AlsHelper
 	# ------------------------------
 	# Money related helpers
 	# ------------------------------
-	
+
 	def pricetag(pennies)
 		# Turns a value of pennies into 2 decimal place number
 		# with a pound sign at the front.
